@@ -17,7 +17,7 @@
 
   <script>
     function postData() {
-      var url = "YOUR_DEPLOYMENT_URL"; // Replace with your deployment URL
+      var url = "https://github.com/Mo1kanos/moik/blob/main/CarmenUp"; // Replace with your deployment URL
       var data = {
         column1: document.getElementById("column1").value,
         column2: document.getElementById("column2").value,
