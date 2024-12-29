@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post Data to Google Sheet</title>
+</head>
+<body>
+  <h1>Post Data to Google Sheet</h1>
+  <form id="myForm">
+    <label for="column1">Column 1:</label>
+    <input type="text" id="column1" name="column1"><br><br>
+    <label for="column2">Column 2:</label>
+    <input type="text" id="column2" name="column2"><br><br>
+    <label for="column3">Column 3:</label>
+    <input type="text" id="column3" name="column3"><br><br>
+    <button type="button" onclick="postData()">Submit</button>
+  </form>
+
+  <script>
+    function postData() {
+      var url = "YOUR_DEPLOYMENT_URL"; // Replace with your deployment URL
+      var data = {
+        column1: document.getElementById("column1").value,
+        column2: document.getElementById("column2").value,
+        column3: document.getElementById("column3").value
+      };
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.text())
+      .then(data => {
+        alert(data);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+    }
+  </script>
+</body>
+</html>
